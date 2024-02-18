@@ -1,0 +1,34 @@
+==> First Create Project
+
+	1 ==> Create new folder (Project Name)
+	2 ==> In terminal go to in folder and type "python3 -m venv my_env"
+	3 ==> Activate virtual environment "source my_env/bin/activate"
+	4 ==> Install Django "pip install django"
+	5 ==> Create Project in folder "django-admin startproject mysite ."
+	6 ==> python manage.py migrate
+	7 ==> Create User "python manage.py createsuperuser" //enter user_name and password
+	8 ==> Create App in folder "myapp"
+		--> python manage.py startapp my_app
+	9 ==> mysite folder inside setting.py
+		INSTALLED_APPS in add your App and change your TIME_ZONE = 'Asia/Kolkata'
+	10 == > After mysite inside urls.py file in add these
+			"from django.urls import path, include" and add path 
+			"path('', include('myapp.urls')),"
+	11 ==> myapp in create templates folder for frontend view
+	12 ==> myapp in create urls.py and views.py
+	13 ==> In urls.py
+			from django.urls import path
+			from django.views import View
+			from . import views
+			
+			urlpatterns = [
+				path('',views.index,name='index'),
+			]
+	14 ==> In views.py 
+			from django.shortcuts import render,redirect
+			from django.conf import settings
+			
+			def index(request):
+				return render(request,'index.html')
+	15 ==> start server "python manage.py runserver ip:port"
+	16 ==> token : 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
